@@ -3,6 +3,7 @@
 
 import requests
 import suds
+import config
 
 def DemandOrderConfirmationImport():
 
@@ -28,7 +29,7 @@ def DemandOrderConfirmationImport():
 </BODY></PACKET>"
 
     XML = head + body
-    u = "http://123.126.34.27:18911/services/DemandOrderConfirmationImport?wsdl"
+    u = config.url + "/services/DemandOrderConfirmationImport?wsdl"
     cc = suds.client.Client(u)
     print cc
     res = cc.service.ScreeningValidationResultsImport(encReqXml=XML)

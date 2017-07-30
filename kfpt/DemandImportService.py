@@ -3,6 +3,7 @@
 
 import requests
 import suds
+import config
 
 def Demand():
 
@@ -26,7 +27,7 @@ def Demand():
 </BODY></PACKET>"
 
     XML = head + body
-    u = "http://123.126.34.27:18911/services/DemandImport?wsdl"
+    u = config.url + "/services/DemandImport?wsdl"
     cc = suds.client.Client(u)
     print cc
     res = cc.service.DemandImport(encReqXml=XML)

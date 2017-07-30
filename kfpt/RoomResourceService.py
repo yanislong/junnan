@@ -3,6 +3,7 @@
 
 import requests
 import suds
+import config
 
 def Room():
 
@@ -25,7 +26,7 @@ def Room():
 </BODY></PACKET>"
 
     XML = head + body
-    u = "http://123.126.34.27:18911/services/RoomResource?wsdl"
+    u = config.url + "/services/RoomResource?wsdl"
     cc = suds.client.Client(u)
     print cc
     res = cc.service.RoomResource(encReqXml=XML)

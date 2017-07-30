@@ -3,6 +3,7 @@
 
 import requests
 import suds
+import config
 
 def tower():
 
@@ -27,7 +28,7 @@ def tower():
 
     XML = head + body
 
-    url = "http://123.126.34.27:18911/services/TowerResource?wsdl"
+    url = config.url + "/services/TowerResource?wsdl"
     cc = suds.client.Client(url)
     print cc
     res = cc.service.TowerResource(encReqXml=XML)

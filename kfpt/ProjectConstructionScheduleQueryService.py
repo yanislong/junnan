@@ -3,6 +3,7 @@
 
 import requests
 import suds
+import config
 
 def ProjectConstructionScheduleQueryService():
 
@@ -28,7 +29,7 @@ def ProjectConstructionScheduleQueryService():
 </BODY></PACKET>"
 
     XML = head + body
-    u = "http://123.126.34.27:18911/services/ProjectConstructionScheduleQuery?wsdl"
+    u = config.url + "/services/ProjectConstructionScheduleQuery?wsdl"
     cc = suds.client.Client(u)
     print cc
     res = cc.service.DeliveryResultImport(encReqXml=XML)

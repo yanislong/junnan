@@ -3,6 +3,7 @@
 
 import requests
 import suds
+import config
 
 def ConfirmResultsFromImport():
 
@@ -28,7 +29,7 @@ def ConfirmResultsFromImport():
 </BODY></PACKET>"
 
     XML = head + body
-    u = "http://123.126.34.27:18911/services/ConfirmResultsFromImport?wsdl"
+    u = config.url + "/services/ConfirmResultsFromImport?wsdl"
     cc = suds.client.Client(u)
     print cc
     res = cc.service.DeliveryResultImport(encReqXml=XML)

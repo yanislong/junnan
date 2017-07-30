@@ -3,6 +3,7 @@
 
 import requests
 import suds
+import config
 
 def ScreeningValidationResultsImport():
 
@@ -28,7 +29,7 @@ def ScreeningValidationResultsImport():
 </BODY></PACKET>"
 
     XML = head + body
-    u = "http://123.126.34.27:18911/services/ScreeningValidationResultsImport?wsdl"
+    u = config.url + "/services/ScreeningValidationResultsImport?wsdl"
     cc = suds.client.Client(u)
     print cc
     res = cc.service.ScreeningValidationResultsImport(encReqXml=XML)
