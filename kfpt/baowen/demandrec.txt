@@ -1,0 +1,77 @@
+REQUEST_ID
+PROVINCE_CODE
+REGION_CODE
+COUNTY_CODE
+CUST_COMPANY
+REGION_ID
+REGION_CODE
+SITE_REGION
+agreement_id
+SITE_ID
+SITE_NAME
+detail_address
+longitude       
+latitude
+active_time
+inactive_time
+Share info
+tower_type
+room_type
+BATTERY
+is_generation
+zero_six
+iselec
+rent_list_power_mode
+power_mode
+MAINTAIN
+windFactor
+Unit1_count
+Unit1_HEIGHT
+Unit1_ antenna
+Unit1_ system
+Unit1_ bbu_sel
+Unit1_ rru_hang
+Unit1_ bbu_fee
+Unit2_count
+Unit2_HEIGHT
+Unit2_ antenna
+Unit2_ system
+Unit2_ bbu_sel
+Unit2_ rru_hang
+Unit2_ bbu_fee
+Unit3_count
+Unit3_HEIGHT
+Unit3_ antenna
+Unit3_ system
+Unit3_ bbu_sel
+Unit3_ rru_hang
+Unit3_ bbu_fee
+tower_share_count
+room_share_count
+maint_share_count
+Rent_fee
+power_gen_share_cout
+tower_pice_s
+Room_pice_s
+maint_fee
+Rent_fee
+power_gen_fee
+maint_discount
+rent_discount
+power_gen_discount
+tower_discount
+room_discount
+Is_rru_discount
+Power_fee
+Oil_fee
+OVER_FEE
+BATTERY_FEE
+WLAN_FEE
+Micro_FEE
+Other_fee
+Other_fee_remark
+all_fee
+all_fee_tax
+High_towe
+Nt_model
+Power_charge_mode

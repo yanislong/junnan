@@ -3,8 +3,10 @@
 
 import requests
 import suds
+import sys
+sys.path.append("/root/git_20170730/kfpt")
+import jiemi
 import config
-
 
 '''
     head = """<?xml version="1.0" encoding="UTF-8"?><PACKET>\
@@ -31,6 +33,8 @@ def Room():
     cc = suds.client.Client(u)
     res = cc.service.RoomResource(encReqXml=XML)
     print res
+    print jiemi.jiemi(res.replace(r"\n",""))
+    return None
 
 '''
     person=cc.factory.create('ns0:Exception')

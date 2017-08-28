@@ -10,22 +10,23 @@ sys.path.append("/root/git_20170730/kfpt/")
 import jiami
 import jiemi
 import config
+import lubin
 
 
 def site():
-    XML4 = "<PACKET><HEAD><CUST_COMPANY>1003</CUST_COMPANY><SERVICE_CODE>T01_OT_001</SERVICE_CODE><ACCESS_TOKEN>MTAwM2FiY1QwMV9PVF8wMDF4eXoyMDE3LTA4</ACCESS_TOKEN><REQUEST_TIME>2017-07-11 09:00:00</REQUEST_TIME><BATCH_NO>000004</BATCH_NO><TOTAL_NUM>1</TOTAL_NUM><CURRENT_NUM>1</CURRENT_NUM></HEAD><BODY><SITE_CODE>5</SITE_CODE><PROVINCE_CODE>6</PROVINCE_CODE><CITY_CODE>110000</CITY_CODE><CUST_COMPANY>8</CUST_COMPANY><START_TIME>2017-07-05 09:00:00</START_TIME><END_TIME>2017-07-05 09:00:00</END_TIME><REQUEST_TIME>2017-07-05 09:00:00</REQUEST_TIME></BODY></PACKET>"
-    XML = XML4
-    print "请求报文明文:\n", XML
-    r0 = requests.post(config.encode, data={'requestXml':XML})
-    endata = r0.content.replace(r"\n","")
-    print "请求报文密文:\n", endata
     print u">> 站址信息查询服务"
     print "*************"
-    en = endata[1:-1]
-    url =  config.url + "/services/SiteResource?wsdl"
-    cc = suds.client.Client(url).service.SiteResource(encReqXml=endata)
-    print "请求返回的加密报文:\n", cc
-    print jiemi.jiemi(cc.replace(r"\n",""))
+    r_id = "MTAwM2FiY1QwMV9PVF8wMDF4eXoyMDE3LTA4"
+    XML = "<PACKET><HEAD><CUST_COMPANY>1003</CUST_COMPANY><SERVICE_CODE>T01_OT_001</SERVICE_CODE><ACCESS_TOKEN>"+ r_id +"</ACCESS_TOKEN><REQUEST_TIME>2017-07-11 09:00:00</REQUEST_TIME><BATCH_NO>000004</BATCH_NO><TOTAL_NUM>1</TOTAL_NUM><CURRENT_NUM>1</CURRENT_NUM></HEAD><BODY><SITE_CODE>5</SITE_CODE><PROVINCE_CODE>230000<PROVINCE_CODE></PROVINCE_CODE></PROVINCE_CODE><CITY_CODE>231200</CITY_CODE><CUST_COMPANY>1002</CUST_COMPANY><START_TIME>2017-07-05 09:00:00</START_TIME><END_TIME>2017-07-05 09:00:00</END_TIME><REQUEST_TIME>2017-08-09 00:00:00</REQUEST_TIME></BODY></PACKET>"
+    print "请求报文明文:\n", XML
+    r0 = requests.post(config.encode, data={'requestXml':XML})
+    en = r0.content.replace(r"\n","")[1:-1]
+#    print "请求报文密文:\n", en
+#    url =  config.url + "/services/SiteResource?wsdl"
+    url =  lubin.url + "/services/SiteResource?wsdl"
+    cc = suds.client.Client(url).service.SiteResource(encReqXml=en)
+#    print "请求返回的加密报文:\n", cc
+    print ">> 返回报文:\n",jiemi.jiemi(cc.replace(r"\n",""))
     return cc
 
 if __name__ == '__main__':
