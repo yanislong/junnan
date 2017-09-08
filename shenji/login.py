@@ -16,7 +16,8 @@ def login(name="chenliang13",passwd="000000"):
 
 if __name__ == "__main__":
     pass
-    login()
+    user1 = "gaochl"
+    login(user1)
 #    header = {"Cookie":"JSESSIONID=D9E0A5B330027A2FE9CB44D297161180"}
 #    r = requests.get("http://123.126.34.238:6080/audituat/main/skins/topbottom/index.jsp", headers=header)
 #    print r.content
